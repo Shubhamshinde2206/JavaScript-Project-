@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area</title>
+</head>
+<style>
+div{
+    height: 500px;
+    width: 400px;
+    background-color:aliceblue;
+     margin-top: 50px;
+    margin-left: 500px; 
+    padding:50px;
+    justify-content: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+  
+}
+button{
+    width: 150px;
+    height: 45px;
+    background-color:lightblue;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    
+    
+}
+button:hover{
+    background-color:lightgreen;
+}
+input[type="text"]{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+</style>
+<body>
+    <div>
+        <h1>Area of triangle</h1><br>
+    <label><h2> Enter Height</h2></label><br>
+    <input type="text" id="num1"><br><br>
+
+    <label> <h2>Enter Base</h2></label><br>
+    <input type="text" id="num2"><br><br><br>
+    <button onclick="area()">Click </button><br><br>
+    <h2 id="result"></h2>
+   </div>  
+    <script> 
+
+    function area()
+    {
+         let h=document.getElementById("num1").value;
+         let b=document.getElementById("num2").value;
+         let c=h*b/2;
+
+         document.getElementById("result").innerHTML="The area of the trangle is: "+c;
+
+    }
+    
+    </script>
+
+ 
+    
+</body>
+</html>

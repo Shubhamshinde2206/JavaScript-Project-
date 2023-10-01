@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.801);
+        }
+        .container{
+            width: 600px;
+            height: 600px;
+            background-color: wheat;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"> Height</label>
+                  <input type="text" class="form-control border-black" id="exampleInputEmail1" >
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label"> Weight</label>
+                  <input type="text" class="form-control border-black" id="exampleInputPassword1">
+                </div>
+                <button type="submit" id="button" class="btn btn-primary mt-3">Calculate</button>
+              </form>
+              <hr>
+              <div class="result mt-3"></div>
+              <div class="status mt-3"> </div>
+        </div>
+    </div>
+    <script>
+
+       const button=document.querySelector('#button')
+
+       button.addEventListener('click',(e)=>{
+          e.preventDefault();
+        const height=document.querySelector('#exampleInputEmail1').value;
+        const weight=document.querySelector('#exampleInputPassword1').value;
+        const result=document.querySelector('.result')
+        const status=document.querySelector('.status')
+
+        if(height===' '||height<0 ||isNaN(height)){
+            result.innerHTML= `<h2>Please enter valid height</h2>`
+
+        }else if(weight===''||weight<0||isNaN(weight)){
+            result.innerHTML= `<h2>Please enter valid weight</h2>`
+        }else{
+            const bmi=(weight/((height*height)/10000)).toFixed(2);  
+            result.innerHTML=`<h2>Your Bmi ${bmi} </h2>`
+
+            if(bmi<18.6){
+            status.innerHTML='<h2>Your body is Under Weight</h2>'
+             }  else if(bmi>=18.6 && bmi<=24.9) {
+            status.innerHTML='<h2> Your body Status is  Normal</h2>'
+            }else if(bmi>24.9){
+            status.innerHTML='<h2>Your body is Over weight</h2>'
+            }
+        }         
+       }) 
+    </script>
+</body>
+</html>
